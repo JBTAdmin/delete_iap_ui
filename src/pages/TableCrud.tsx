@@ -71,12 +71,12 @@ function EditToolbar(props: EditToolbarProps) {
     const {setRows, setRowModesModel, columns1} = props;
 
     const columnName = columns1.map(t => t.field)
-    console.log("Column Names==" + columnName)
+    // console.log("Column Names==" + columnName)
 
     const obj = {isNew: true};
 
     columnName.forEach(t => obj[t] = "")
-    console.log(obj)
+    // console.log(obj)
 
     const handleClick = () => {
         // const id = randomId();
@@ -96,8 +96,8 @@ function EditToolbar(props: EditToolbarProps) {
     );
 }
 
-export default function TableCrud({columns1, initialRows}) {
-    const [rows, setRows] = useState(initialRows);
+export default function TableCrud({columns1, rows, setRows}) {
+    // const [rows, setRows] = useState(initialRows);
     const [rowModesModel, setRowModesModel] = useState<GridRowModesModel>({});
 
     const handleRowEditStop: GridEventListener<'rowEditStop'> = (params, event) => {

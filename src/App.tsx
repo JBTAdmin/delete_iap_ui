@@ -1,11 +1,9 @@
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Header from "./layout/header.tsx";
+import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
-import TableCrud from "./pages/specialHandlingUser.tsx";
-import SpecialHandlingUser from "./pages/specialHandlingUser.tsx";
-import SelectAllTransferList from "./pages/TransferList.tsx";
-import AatCategory from "./pages/aatCategory.tsx";
+import {Outlet} from "react-router-dom";
 
 function Copyright() {
     return (
@@ -20,16 +18,25 @@ function Copyright() {
 }
 
 export default function App() {
+
+
     return (
-        <Container maxWidth="xl">
-            <Box sx={{my: 4}}>
-                <Typography variant="h4" component="h1" gutterBottom>
-                    <AatCategory></AatCategory>
-                    <SpecialHandlingUser></SpecialHandlingUser>
-                    <SelectAllTransferList></SelectAllTransferList>
-                </Typography>
-                <Copyright/>
+        <>
+            <Header></Header>
+            <Box
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                minHeight="100vh"
+                marginTop="1cm"
+            >
+                <Container maxWidth="lg">
+                    <Typography variant="h4" component="h1" gutterBottom>
+                        <Outlet/>
+                    </Typography>
+                </Container>
             </Box>
-        </Container>
+            <Copyright/>
+        </>
     );
 }
